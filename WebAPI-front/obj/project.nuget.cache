@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "mO7tLYGJLzQzvbmKvzc4IBmSvOLpuvOVzMlsshNupUyVfJRzJOMf0YBHIT7punmaoUXVy2EtwJk6/Jwp+lBdvg==",
+  "success": true,
+  "projectFilePath": "D:\\Learning\\asp.net-core\\WebAPI-front\\WebAPI-front.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\asiru\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
