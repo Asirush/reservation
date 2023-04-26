@@ -60,11 +60,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Learning\\asp.net-core\\WebAPI-front\\WebAPI-front.csproj",
+      "projectUniqueName": "D:\\Learning\\reservation\\WebAPI-front\\WebAPI-front.csproj",
       "projectName": "WebAPI-front",
-      "projectPath": "D:\\Learning\\asp.net-core\\WebAPI-front\\WebAPI-front.csproj",
+      "projectPath": "D:\\Learning\\reservation\\WebAPI-front\\WebAPI-front.csproj",
       "packagesPath": "C:\\Users\\asiru\\.nuget\\packages\\",
-      "outputPath": "D:\\Learning\\asp.net-core\\WebAPI-front\\obj\\",
+      "outputPath": "D:\\Learning\\reservation\\WebAPI-front\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\asiru\\AppData\\Roaming\\NuGet\\NuGet.Config",

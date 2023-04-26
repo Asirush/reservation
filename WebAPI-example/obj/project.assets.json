@@ -384,11 +384,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Learning\\asp.net-core\\WebAPI-example\\WebAPI-example.csproj",
+      "projectUniqueName": "D:\\Learning\\reservation\\WebAPI-example\\WebAPI-example.csproj",
       "projectName": "WebAPI-example",
-      "projectPath": "D:\\Learning\\asp.net-core\\WebAPI-example\\WebAPI-example.csproj",
+      "projectPath": "D:\\Learning\\reservation\\WebAPI-example\\WebAPI-example.csproj",
       "packagesPath": "C:\\Users\\asiru\\.nuget\\packages\\",
-      "outputPath": "D:\\Learning\\asp.net-core\\WebAPI-example\\obj\\",
+      "outputPath": "D:\\Learning\\reservation\\WebAPI-example\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\asiru\\AppData\\Roaming\\NuGet\\NuGet.Config",
