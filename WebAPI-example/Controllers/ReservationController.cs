@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
+using System.Reflection.Metadata.Ecma335;
 using WebAPI_example.Models;
 
 namespace WebAPI_example.Controllers
@@ -10,9 +11,22 @@ namespace WebAPI_example.Controllers
     public class ReservationController : ControllerBase
     {
         private IRepository repository;
-        public ReservationController(IRepository repository)
+        private IWebHostEnvironment webHostEnvironment;
+        public ReservationController(IRepository repository, IWebHostEnvironment webHostEnvironment)
         {
             this.repository = repository;
+            this.webHostEnvironment = webHostEnvironment;
+        }
+
+        [HttpPost("UploadFile")]
+        public async Task<string> UploadFile([FromForm] IFormFile file)
+        {
+            string path = Path.Combine(webHostEnvironment.WebRootPath, "Images/" + file.Name);
+            using (var stream = new FileStream(path, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+            return "http://localhost:5285/Images/" + file.Name;
         }
 
         [HttpGet]
@@ -31,7 +45,7 @@ namespace WebAPI_example.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] Reservation res)
         {
-            if(!Authenticate()) { return Unauthorized(); }
+            if (!Authenticate()) { return Unauthorized(); }
             return Ok(repository.AddReservation(new Reservation { Name = res.Name, StartLocation = res.StartLocation, EndLocation = res.EndLocation }));
         }
 

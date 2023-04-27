@@ -61,11 +61,16 @@ namespace WebAPI_front.Controllers
             Reservation recivedReservation = new Reservation();
             using (var httpClient = new HttpClient())
             {
+                httpClient.DefaultRequestHeaders.Add("Key", "VictoriasSecret");
                 StringContent content = new StringContent(JsonConvert.SerializeObject(reservation), Encoding.UTF8, "application/json");
                 using (var responce = await httpClient.PostAsync("http://localhost:5285/api/Reservation", content))
                 {
                     string apiResponce = await responce.Content.ReadAsStringAsync();
+
+                    ViewBag.StatusCode = responce.StatusCode + " | " + responce.IsSuccessStatusCode;
+
                     recivedReservation = JsonConvert.DeserializeObject<Reservation>(apiResponce);
+
                 }
             }
             return View(recivedReservation);
