@@ -85,5 +85,27 @@ namespace WebAPI_front.Controllers
             }
             return View(reservation);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateReservation(Reservation reservation)
+        {
+            Reservation recivedReservation = new Reservation();
+            using (var httpClient = new HttpClient())
+            {
+                var content = new MultipartFormDataContent();
+                content.Add(new StringContent(reservation.Id.ToString()), "Id");
+                content.Add(new StringContent(reservation.Name.ToString()), "Name");
+                content.Add(new StringContent(reservation.StartLocation.ToString()), "StartLocation");
+                content.Add(new StringContent(reservation.EndLocation.ToString()), "EndLocation");
+
+                using (var responce = await httpClient.PutAsync("http://localhost:5285/api/Reservation/", content))
+                {
+                    string apiResponce = await responce.Content.ReadAsStringAsync();
+                    ViewBag.Result = responce.StatusCode;
+                    recivedReservation = JsonConvert.DeserializeObject<Reservation>(apiResponce);
+                }
+            }
+            return View(reservation);
+        }
     }
 }
