@@ -108,5 +108,18 @@ namespace WebAPI_front.Controllers
             }
             return View(reservation);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteReservation(int ReservationId)
+        {
+            using(var httpClient = new HttpClient())
+            {
+                using(var responce = await httpClient.DeleteAsync("http://localhost:5285/api/Reservation/" + ReservationId))
+                {
+                    string apiResponce = await responce.Content.ReadAsStringAsync();
+                }
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
