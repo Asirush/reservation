@@ -117,14 +117,34 @@ namespace WebAPI_front.Controllers
         [HttpPost]
         public async Task<IActionResult> DeleteReservation(int ReservationId)
         {
-            using(var httpClient = new HttpClient())
+            using (var httpClient = new HttpClient())
             {
-                using(var responce = await httpClient.DeleteAsync("http://localhost:5285/api/Reservation/" + ReservationId))
+                using (var responce = await httpClient.DeleteAsync("http://localhost:5285/api/Reservation/" + ReservationId))
                 {
                     string apiResponce = await responce.Content.ReadAsStringAsync();
                 }
             }
             return RedirectToAction("Index");
+        }
+
+        public ViewResult AddFile() => View();
+
+        [HttpPost]
+        public async Task<IActionResult> AddFile(IFormFile file)
+        {
+            string apiResponce = "";
+            using (var httpClient = new HttpClient())
+            {
+                var form = new MultipartFormDataContent();
+                using (var fileStream = file.OpenReadStream())
+                {
+                    form.Add(new StreamContent(fileStream), "file", file.FileName);
+                    using (var responce = await httpClient.PostAsync("http://localhost:5285/api/Reservation/UploadFile", form)){
+                        apiResponce = await responce.Content.ReadAsStringAsync();
+                    }
+                }
+            }
+            return View((object)apiResponce);
         }
     }
 }

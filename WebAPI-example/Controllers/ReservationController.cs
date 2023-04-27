@@ -21,12 +21,12 @@ namespace WebAPI_example.Controllers
         [HttpPost("UploadFile")]
         public async Task<string> UploadFile([FromForm] IFormFile file)
         {
-            string path = Path.Combine(webHostEnvironment.WebRootPath, "Images/" + file.Name);
+            string path = Path.Combine(webHostEnvironment.WebRootPath, "Images/" + file.FileName);
             using (var stream = new FileStream(path, FileMode.Create))
             {
                 await file.CopyToAsync(stream);
             }
-            return "http://localhost:5285/Images/" + file.Name;
+            return "http://localhost:5285/Images/" + file.FileName;
         }
 
         [HttpGet]

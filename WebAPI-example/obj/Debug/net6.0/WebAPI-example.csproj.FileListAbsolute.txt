@@ -66,3 +66,4 @@ D:\Learning\reservation\WebAPI-example\obj\Debug\net6.0\refint\WebAPI-example.dl
 D:\Learning\reservation\WebAPI-example\obj\Debug\net6.0\WebAPI-example.pdb
 D:\Learning\reservation\WebAPI-example\obj\Debug\net6.0\WebAPI-example.genruntimeconfig.cache
 D:\Learning\reservation\WebAPI-example\obj\Debug\net6.0\ref\WebAPI-example.dll
+D:\Learning\reservation\WebAPI-example\bin\Debug\net6.0\WebAPI-example.staticwebassets.runtime.json
