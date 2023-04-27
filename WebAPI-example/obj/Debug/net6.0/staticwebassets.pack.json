@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "D:\\Learning\\reservation\\WebAPI-example\\wwwroot\\Images\\New Bitmap Image.jpg",
+      "PackagePath": "staticwebassets\\Images\\New Bitmap Image.jpg"
+    },
+    {
       "Id": "D:\\Learning\\reservation\\WebAPI-example\\wwwroot\\Images\\file",
       "PackagePath": "staticwebassets\\Images"
     },

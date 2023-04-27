@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1tNjyRqJcj9AB6sZrZgR8za3ESgetxct0uAK/kVdVAY=",
+  "Hash": "GopjiXargIFyrZmAkjmYrYEMHnp5TNNA+ZOBKp/UgEk=",
   "Source": "WebAPI-example",
   "BasePath": "_content/WebAPI-example",
   "Mode": "Default",
@@ -32,6 +32,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\file"
+    },
+    {
+      "Identity": "D:\\Learning\\reservation\\WebAPI-example\\wwwroot\\Images\\New Bitmap Image.jpg",
+      "SourceId": "WebAPI-example",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Learning\\reservation\\WebAPI-example\\wwwroot\\",
+      "BasePath": "_content/WebAPI-example",
+      "RelativePath": "Images/New Bitmap Image.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\New Bitmap Image.jpg"
     }
   ]
 }
