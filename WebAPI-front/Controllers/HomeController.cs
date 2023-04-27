@@ -101,7 +101,8 @@ namespace WebAPI_front.Controllers
                 using (var responce = await httpClient.PutAsync("http://localhost:5285/api/Reservation/", content))
                 {
                     string apiResponce = await responce.Content.ReadAsStringAsync();
-                    ViewBag.Result = responce.StatusCode;
+                    ViewBag.Result = "Success";
+                    ViewBag.StatusCode = responce.StatusCode + " | " + responce.IsSuccessStatusCode;
                     recivedReservation = JsonConvert.DeserializeObject<Reservation>(apiResponce);
                 }
             }
