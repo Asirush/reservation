@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
 using WebAPI_example.Models;
 
 namespace WebAPI_example.Controllers
@@ -28,7 +29,19 @@ namespace WebAPI_example.Controllers
         }
 
         [HttpPost]
-        public Reservation Post([FromBody] Reservation res) => repository.AddReservation(new Reservation { Name = res.Name, StartLocation = res.StartLocation, EndLocation = res.EndLocation});
+        public IActionResult Post([FromBody] Reservation res)
+        {
+            if(!Authenticate()) { return Unauthorized(); }
+            return Ok(repository.AddReservation(new Reservation { Name = res.Name, StartLocation = res.StartLocation, EndLocation = res.EndLocation }));
+        }
+
+        bool Authenticate()
+        {
+            var allowKeys = new[] { "secret@123", "VictoriasSecret" };
+            StringValues key = Request.Headers["Key"];
+            int count = (from t in allowKeys where t == key select t).Count();
+            return count == 0 ? false : true;
+        }
 
         [HttpPut]
         public Reservation Put([FromForm] Reservation res) => repository.UpdateReservation(res);
