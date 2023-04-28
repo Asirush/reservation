@@ -3,6 +3,7 @@ using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using System.Diagnostics;
 using System.IdentityModel.Tokens.Jwt;
+using System.Net.Http.Headers;
 using System.Text;
 using WebAPI_front.Models;
 
@@ -19,9 +20,11 @@ namespace WebAPI_front.Controllers
 
         public async Task<IActionResult> Index()
         {
+            var jwt = Request.Cookies["jwtCookie"];
             List<Reservation> reservations = new List<Reservation>();
             using (var httpClient = new HttpClient())
             {
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwt);
                 using (var responce = await httpClient.GetAsync("http://localhost:5285/api/Reservation"))
                 {
                     string apiResponce = await responce.Content.ReadAsStringAsync();
@@ -40,14 +43,24 @@ namespace WebAPI_front.Controllers
             }
 
             var accessToken = GenerateJSONWebToken();
-
+            SetJWTCookie(accessToken);
             return View();
 
         }
 
-        private object GenerateJSONWebToken()
+        private void SetJWTCookie(string accessToken)
         {
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("VictoriaSecret"));
+            var CookieOption = new CookieOptions
+            {
+                HttpOnly = true,
+                Expires = DateTime.Now.AddMinutes(5)
+            };
+            Response.Cookies.Append("jwtCookie", accessToken, CookieOption);
+        }
+
+        private string GenerateJSONWebToken()
+        {
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("MynameisJamesBond007"));
             var credential = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
             var token = new JwtSecurityToken(
                 issuer: "-*-",

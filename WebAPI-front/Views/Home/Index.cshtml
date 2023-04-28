@@ -38,6 +38,38 @@
         </tr>
     </thead>
     <tbody>
+    <tbody>
+            @if (Model != null)
+            {
+                @foreach (var r in Model)
+                {
+                <tr>
+                    <td>@r.Id</td>
+                    <td>@r.Name</td>
+                    <td>@r.StartLocation</td>
+                    <td>@r.EndLocation</td>
+                    <td>
+                        <a asp-action="UpdateReservation" asp-route-id="@r.Id">
+                            edit
+                        </a>
+                    </td>
+                    <td>
+                        <form asp-action="DeleteReservation" method="post">
+                            <input type="hidden" value="@r.Id" name="ReservationId" />
+                            delete
+                        </form>
+                    </td>
+                </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="6">No data</td>
+                </tr>
+            }
+            
+    </tbody>
     </tbody>
 </table>
 
