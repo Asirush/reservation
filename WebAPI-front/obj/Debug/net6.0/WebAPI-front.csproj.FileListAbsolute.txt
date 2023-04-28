@@ -64,3 +64,11 @@ D:\Learning\reservation\WebAPI-front\obj\Debug\net6.0\refint\WebAPI-front.dll
 D:\Learning\reservation\WebAPI-front\obj\Debug\net6.0\WebAPI-front.pdb
 D:\Learning\reservation\WebAPI-front\obj\Debug\net6.0\WebAPI-front.genruntimeconfig.cache
 D:\Learning\reservation\WebAPI-front\obj\Debug\net6.0\ref\WebAPI-front.dll
+D:\Learning\reservation\WebAPI-front\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Learning\reservation\WebAPI-front\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Learning\reservation\WebAPI-front\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Learning\reservation\WebAPI-front\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+D:\Learning\reservation\WebAPI-front\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+D:\Learning\reservation\WebAPI-front\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Learning\reservation\WebAPI-front\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+D:\Learning\reservation\WebAPI-front\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll

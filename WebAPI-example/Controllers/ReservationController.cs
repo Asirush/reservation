@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
 using System.Reflection.Metadata.Ecma335;
@@ -8,6 +9,7 @@ namespace WebAPI_example.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize] //filters
     public class ReservationController : ControllerBase
     {
         private IRepository repository;

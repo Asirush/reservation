@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using System.Diagnostics;
+using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using WebAPI_front.Models;
 
@@ -27,6 +29,33 @@ namespace WebAPI_front.Controllers
                 }
             }
             return View(reservations);
+        }
+
+        [HttpPost]
+        public IActionResult Index(string username, string password)
+        {
+            if((username!="admin") || (password != "admin"))
+            {
+                return View((object)"Login Failed");
+            }
+
+            var accessToken = GenerateJSONWebToken();
+
+            return View();
+
+        }
+
+        private object GenerateJSONWebToken()
+        {
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("VictoriaSecret"));
+            var credential = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+            var token = new JwtSecurityToken(
+                issuer: "-*-",
+                audience: "-*-",
+                expires: DateTime.Now.AddMinutes(2),
+                signingCredentials: credential
+                );
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
         public ViewResult GetReservation() { return View(); }
