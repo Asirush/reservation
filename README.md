@@ -1,10 +1,13 @@
 # WebApi
 
-WebAPI-example
+WebAPI-example is a backend application, which has several methods:
+- Add Reservation
+- Delete Reservation
+- Edit Reservation
 
-## Installation
+## How to run project
 
-Run WebAPI-example.sln
+Run reservation/WebAPI-example/WebAPI-example.sln
 
 ## Usage
 
